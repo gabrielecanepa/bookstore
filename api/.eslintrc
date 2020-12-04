@@ -1,0 +1,30 @@
+{
+  "env": {
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": ["eslint:recommended", "prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "max-lines": "error",
+    "no-console": "off",
+    "no-var": "error",
+    "object-shorthand": ["error", "always"],
+    "quotes": ["error", "single", { "avoidEscape": true }],
+    "sort-keys": "off",
+    "sort-vars": ["error", { "ignoreCase": false }],
+    "prettier/prettier": [
+      "error",
+      {
+        "arrowParens": "avoid",
+        "bracketSpacing": true,
+        "jsxBracketSameLine": false,
+        "printWidth": 120,
+        "semi": false,
+        "singleQuote": true,
+        "trailingComma": "es5"
+      }
+    ]
+  }
+}

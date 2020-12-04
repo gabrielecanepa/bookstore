@@ -1,0 +1,14 @@
+{
+  "development": {
+    "database": "bookstore_development",
+    "dialect": "postgres"
+  },
+  "test": {
+    "database": "bookstore_test",
+    "dialect": "postgres"
+  },
+  "production": {
+    "use_env_variable": "DATABASE_URL",
+    "dialect": "postgres"
+  }
+}

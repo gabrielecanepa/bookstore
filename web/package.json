@@ -1,0 +1,39 @@
+{
+  "name": "bookstore-web",
+  "description": "Simple web app displaying and filtering a books library",
+  "repository": "https://github.com/gabrielecanepa/bookstore",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.2.0",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-sort-imports-es6-autofix": "^0.5.0",
+    "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "^4.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "lint": "./node_modules/.bin/eslint src",
+    "zip": "git archive HEAD -o ../${PWD##*/}.zip"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

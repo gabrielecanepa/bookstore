@@ -1,6 +1,6 @@
 {
   "name": "bookstore-api",
-  "description": "Simple Node.js RESTful API serving books from a PostgreSQL database.",
+  "description": "Simple Node.js RESTful API serving books from a PostgreSQL database",
   "main": "index.js",
   "repository": "https://github.com/gabrielecanepa/bookstore",
   "license": "UNLICENSED",

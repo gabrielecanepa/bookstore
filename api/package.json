@@ -5,15 +5,11 @@
   "repository": "https://github.com/gabrielecanepa/bookstore",
   "license": "UNLICENSED",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "dotenv": "^8.2.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "faker": "^5.1.0",
     "morgan": "^1.10.0",
-    "mysql2": "^2.2.5",
-    "path": "^0.12.7",
     "pg": "^8.5.1",
-    "pg-hstore": "^2.3.3",
     "sequelize": "^6.3.5"
   },
   "devDependencies": {

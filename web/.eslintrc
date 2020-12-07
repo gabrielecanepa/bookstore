@@ -42,11 +42,13 @@
     "no-console": 1,
     "no-var": "error",
     "object-shorthand": ["error", "always"],
+    "prefer-arrow-callback": "error",
     "prefer-const": "error",
     "quotes": ["error", "single", { "avoidEscape": true }],
     "sort-keys": 0,
     "sort-vars": ["error", { "ignoreCase": false }],
     "import/namespace": ["error", { "allowComputed": true }],
+    "import/no-anonymous-default-export": ["error", { "allowObject": true }],
     "jsx-a11y/no-autofocus": 0,
     "prettier/prettier": [
       "error",
@@ -57,7 +59,7 @@
         "trailingComma": "es5",
         "bracketSpacing": true,
         "jsxBracketSameLine": false,
-        "allowParens": "avoid"
+        "arrowParens": "avoid"
       }
     ],
     "react/forbid-component-props": 0,

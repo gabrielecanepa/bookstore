@@ -1,11 +1,10 @@
 const app = require('express')()
-const bodyParser = require('body-parser')
 const router = require('./routes')
 const logger = require('morgan')
+const cors = require('cors')
 
 // Middlewares
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(cors())
 app.use(logger('dev'))
 
 // Define routes

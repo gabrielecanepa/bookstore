@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import theme, { GlobalStyle } from 'theme'
 import { Dropdown, Navbar } from './components'
 import { Error, Library, Loader } from './screens'
@@ -19,27 +19,20 @@ const App = () => {
   const [order, setOrder] = useState('')
   const [query, setQuery] = useState('')
 
-  // const params = useMemo(
-  //   () => ({
-  //     order_by: order,
-  //     q: query,
-  //   }),
-  //   [order, query]
-  // )
-
-  const fetchBooks = useCallback(async () => {
-    const params = {
+  const params = useMemo(
+    () => ({
       order_by: order,
       q: query,
-    }
+    }),
+    [order, query]
+  )
+
+  const fetchBooks = useCallback(async () => {
+    setIsLoading(true)
     const { json, requestError } = await apiRequest(apiGetBooks, [params])
-    if (requestError) {
-      setError(requestError)
-    } else {
-      setBooks(json)
-    }
+    requestError ? setError(requestError) : setBooks(json)
     setIsLoading(false)
-  }, [order, query])
+  }, [params])
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => fetchBooks(), []) // Fetches only on mount. Add fetchBooks to the dependencies to fetch every time params change

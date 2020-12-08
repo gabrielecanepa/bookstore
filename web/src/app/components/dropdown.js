@@ -13,7 +13,7 @@ const Dropdown = ({ fetchBooks, setOrder }) => {
   return (
     <>
       <label htmlFor="order-by">{'Ordina per:'}</label>
-      <select name="order-by" onChange={onOrderChange}>
+      <select id="order-by" name="order-by" onChange={onOrderChange}>
         <option value="">{'Default'}</option>
         <option value="title">{'Titolo'}</option>
         <option value="author">{'Autore'}</option>

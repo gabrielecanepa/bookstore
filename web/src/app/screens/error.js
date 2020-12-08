@@ -36,11 +36,11 @@ const EmailLink = styled.a`
 const Error = ({ error }) => (
   <FlexContainer>
     <StyledErrorIcon />
-    <Title>{'Ooops! Something went wrong.'}</Title>
+    <Title>{'Ooops! Qualcosa è andato storto.'}</Title>
     <Message>
-      {`Looks like you ran into a ${error.type} error (code ${error.status}). Please try to reload the page, or `}
-      <EmailLink href="#">{'click here'}</EmailLink>
-      {' to contact our support.'}
+      {`Sembra che tu sia incappato in un errore di ${error.type} (codice ${error.status}). Per favore prova a fare un refresh della pagina, or `}
+      <EmailLink href="#">{'clicca qui'}</EmailLink>
+      {' per contattare il nostro supporto.'}
     </Message>
   </FlexContainer>
 )

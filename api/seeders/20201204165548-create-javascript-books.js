@@ -15,10 +15,9 @@ module.exports = {
       .then(response =>
         response.data.items.reduce((result, book) => {
           const { title, authors, publisher, imageLinks } = book.volumeInfo
-          const author = authors && authors.join(', ')
-          const url = book.selfLink
+          const author = authors && authors[0]
           const imageUrl = imageLinks && imageLinks.thumbnail
-          result.push({ title, author, publisher, url, imageUrl })
+          result.push({ title, author, publisher, imageUrl })
           return result
         }, [])
       )

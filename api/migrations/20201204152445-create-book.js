@@ -17,9 +17,6 @@ module.exports = {
       publisher: {
         type: Sequelize.STRING,
       },
-      url: {
-        type: Sequelize.STRING,
-      },
       imageUrl: {
         type: Sequelize.STRING,
       },

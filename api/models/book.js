@@ -10,9 +10,6 @@ module.exports = (sequelize, DataTypes) =>
     publisher: {
       type: DataTypes.STRING,
     },
-    url: {
-      type: DataTypes.STRING,
-    },
     imageUrl: {
       type: DataTypes.STRING,
     },

@@ -9,9 +9,7 @@ export default createGlobalStyle`
 
   html {
     font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    line-height: 1.5;
-    text-align: left;
+    font-weight: 400;
     color: ${({ theme }) => theme.primaryText};
     background: ${({ theme }) => theme.background};
     text-rendering: optimizeLegibility;
@@ -21,15 +19,23 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialiased;
   }
 
-  html, body, body > div {
+  html, body {
     width: 100%;
     height: 100%;
-    margin: 0;
-    padding: 0;
+  }
+
+  // Hide overflow and simulate an application view
+  body {
+    min-height: 100vh;
+    overflow: hidden;
+
+    > #root {
+      overflow: scroll;
+    }
   }
 
   h1 {
-    font-weight: 400;
+    font-weight: 900;
   }
 
   h2 {
@@ -39,8 +45,7 @@ export default createGlobalStyle`
 
   h3 {
     font-size: 1.5rem;
-    padding: 0 0.5rem;
-    font-weight: 300;
+    font-weight: 400;
   }
 
   p {
@@ -49,25 +54,25 @@ export default createGlobalStyle`
 
   a {
     color: ${({ theme }) => theme.primary};
-    text-decoration: none;
   }
 
   button {
     background: transparent;
     border: none;
+    cursor: pointer;
 
     :active {
       outline: none;
     }
-  }
-
-  ul {
-    flex-wrap: wrap;
-    list-style-type: none;
+    :disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
   }
 
   :focus {
     outline: ${({ theme }) => theme.primary} auto 5px;
+    box-shadow: 0 0 0 0.2rem rgba(${({ theme }) => theme.primary}, .25);
   }
 
   ::selection {

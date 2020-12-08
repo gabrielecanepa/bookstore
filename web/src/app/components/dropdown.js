@@ -1,25 +1,50 @@
 /* eslint-disable jsx-a11y/no-onchange */
-import React, { useCallback } from 'react'
+import React, { useCallback, useEffect, useRef } from 'react'
+import styled from 'styled-components'
 
-const Dropdown = ({ fetchBooks, setOrder }) => {
+const Container = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+`
+
+const StyledSelect = styled.select`
+  font-family: 'Roboto';
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-left: 4px;
+  cursor: pointer;
+`
+
+const Dropdown = ({ fetchBooks, order, setOrder }) => {
+  const dropdownRef = useRef(null) // to check if the component has mounted
+
   const onOrderChange = useCallback(
     event => {
       setOrder(event.target.value)
-      fetchBooks()
     },
-    [fetchBooks, setOrder]
+    [setOrder]
   )
 
+  useEffect(() => {
+    if (dropdownRef.current) {
+      dropdownRef.current = false
+    } else {
+      fetchBooks()
+    }
+  }, [order])
+
   return (
-    <>
-      <label htmlFor="order-by">{'Ordina per:'}</label>
-      <select id="order-by" name="order-by" onChange={onOrderChange}>
+    <Container>
+      <label htmlFor="order-by">{'Ordina per: '}</label>
+      <StyledSelect id="order-by" name="order-by" onChange={onOrderChange} ref={dropdownRef}>
         <option value="">{'Default'}</option>
         <option value="title">{'Titolo'}</option>
         <option value="author">{'Autore'}</option>
         <option value="publisher">{'Editore'}</option>
-      </select>
-    </>
+      </StyledSelect>
+    </Container>
   )
 }
 

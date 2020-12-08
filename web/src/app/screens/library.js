@@ -1,11 +1,31 @@
+import Card from 'app/components/card'
 import React from 'react'
+import styled from 'styled-components'
+
+const Container = styled.div`
+  display: grid;
+  padding: 0 1rem 1rem;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+  grid-template-columns: 1fr;
+
+  @media (min-width: ${({ theme }) => theme.screens.md}px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (min-width: ${({ theme }) => theme.screens.lg}px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (min-width: ${({ theme }) => theme.screens.xl}px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+`
 
 const Content = ({ books }) => (
-  <div>
+  <Container>
     {books.map(book => (
-      <li key={book.id}>{book.title}</li>
+      <Card key={book.id} {...book} />
     ))}
-  </div>
+  </Container>
 )
 
 export default Content

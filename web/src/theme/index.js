@@ -2,13 +2,16 @@ import GlobalStyle from './global'
 export { GlobalStyle }
 
 const screens = {
-  mobile: 720,
+  sm: 576,
+  md: 768,
+  lg: 992,
+  xl: 1200,
 }
 
 const colors = {
-  black: '#202121',
-  grayDark: '#6c7680',
-  gray: '#e6eaea',
+  black: '#000000',
+  grayDark: '#2f2f2f',
+  gray: '#c4c4c4',
   grayLight: '#f9f9f9',
   white: '#ffffff',
   blueDark: '#20232a',
@@ -20,10 +23,10 @@ const colors = {
 }
 
 const theme = {
-  primary: colors.blueLight,
-  primaryText: colors.blueDark,
+  primary: colors.grayDark,
+  primaryText: colors.black,
   secondaryText: colors.grayDark,
-  background: colors.grayLight,
+  background: colors.white,
   light: colors.white,
   error: colors.red,
 }

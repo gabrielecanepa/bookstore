@@ -1,11 +1,11 @@
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('books', {
+  up: (queryInterface, Sequelize) =>
+    queryInterface.createTable('Books', {
       id: {
+        type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
       },
       title: {
         type: Sequelize.STRING,
@@ -13,23 +13,26 @@ module.exports = {
       },
       author: {
         type: Sequelize.STRING,
-        allowNull: false,
       },
       publisher: {
         type: Sequelize.STRING,
-        allowNull: false,
+      },
+      url: {
+        type: Sequelize.STRING,
+      },
+      imageUrl: {
+        type: Sequelize.STRING,
       },
       createdAt: {
-        allowNull: false,
         type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: new Date(),
       },
       updatedAt: {
-        allowNull: false,
         type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: new Date(),
       },
-    })
-  },
-  down: async queryInterface => {
-    await queryInterface.dropTable('books')
-  },
+    }),
+  down: queryInterface => queryInterface.dropTable('Books'),
 }

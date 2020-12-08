@@ -20,9 +20,7 @@ const getAllBooks = async (req, res) => {
     })
     return res.status(200).json(books)
   } catch (error) {
-    return res.status(500).send({
-      error: 'Internal Server Error',
-    })
+    return res.status(500).send(error)
   }
 }
 

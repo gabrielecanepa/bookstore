@@ -1,17 +1,19 @@
-module.exports = (sequelize, DataTypes) => {
-  const Book = sequelize.define('Book', {
+module.exports = (sequelize, DataTypes) =>
+  sequelize.define('Book', {
     title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     author: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
     publisher: {
       type: DataTypes.STRING,
-      allowNull: false,
+    },
+    url: {
+      type: DataTypes.STRING,
+    },
+    imageUrl: {
+      type: DataTypes.STRING,
     },
   })
-  return Book
-}

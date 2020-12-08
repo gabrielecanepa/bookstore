@@ -5,6 +5,7 @@
   "repository": "https://github.com/gabrielecanepa/bookstore",
   "license": "UNLICENSED",
   "dependencies": {
+    "axios": "^0.21.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "faker": "^5.1.0",

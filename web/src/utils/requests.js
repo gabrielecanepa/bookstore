@@ -1,6 +1,8 @@
 import { stringify } from 'query-string'
 
-const BASE_API_URL = 'http://localhost:5000'
+const PORT = process.env.REACT_APP_API_PORT || 5000
+
+const BASE_API_URL = process.env.NODE_ENV === 'development' ? `http://localhost:${PORT}` : process.env.REACT_APP_API_URL
 const BOOKS_URL = `${BASE_API_URL}/books`
 
 export const apiRequest = async (requestMethod, args) => {

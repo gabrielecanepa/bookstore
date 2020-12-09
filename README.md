@@ -1,4 +1,4 @@
-# Book Store
+# Bookstore
 
 A simple application to display, search and filter a collection a books.
 
@@ -19,7 +19,7 @@ cd bookstore
 
 1. Switch to the `/api` folder
 2. Install the dependencies with `yarn install` or `npm install`
-3. Install the [Sequelize CLI](https://sequelize.org/master/manual/migrations.html) globally with `yarn global add sequelize-cli` or `npm install -g sequelize-cli`, or just run it with npx (e.g. `npx sequelize-cli db:create`)
+3. Install the [Sequelize CLI](https://sequelize.org/master/manual/migrations.html) globally with `yarn global add sequelize-cli` or `npm install -g sequelize-cli`, or just run every command with npx (e.g. `npx sequelize-cli db:create`)
 4. Build a local database and create some books:
    ```sh
    sequelize db:create

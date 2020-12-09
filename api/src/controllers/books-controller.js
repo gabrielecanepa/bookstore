@@ -1,11 +1,9 @@
-const db = require('../models')
-
 const {
   Book,
   Sequelize: { col, fn, Op },
-} = db
+} = require('../database')
 
-const getAllBooks = async (req, res) => {
+const index = async (req, res) => {
   try {
     const { q, order_by } = req.query
     const books = await Book.findAll({
@@ -25,5 +23,5 @@ const getAllBooks = async (req, res) => {
 }
 
 module.exports = {
-  getAllBooks,
+  index,
 }

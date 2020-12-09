@@ -98,7 +98,7 @@
         "requiredFirst": false
       }
     ],
-    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/exhaustive-deps": "off",
     "react-hooks/rules-of-hooks": "error",
     "sort-imports-es6-autofix/sort-imports-es6": [
       2,

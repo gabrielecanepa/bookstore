@@ -10,27 +10,31 @@ const FlexContainer = styled.div`
   padding-top: 10rem;
 `
 
-const EmptyState = ({ fetchBooks, query, setQuery }) => {
+const SeeAllLink = styled.button`
+  font-size: 1rem;
+  text-decoration: underline;
+`
+
+const EmptyState = ({ fetchBooks, isEmptyLibrary, lastQuery, query, setQuery }) => {
   const onSeeAllClick = useCallback(() => setQuery(''), [setQuery])
 
-  // useEffect(() => {
-  //   if (query === '') fetchBooks()
-  // }, [fetchBooks, query])
+  useEffect(() => {
+    if (query === '') fetchBooks()
+  }, [fetchBooks, query])
 
   return (
     <FlexContainer>
-      {query.length > 0 ? (
+      {isEmptyLibrary ? (
+        <p>{'Non è presente alcun libro in questa libreria 😭'}</p>
+      ) : (
         <>
-          <p>{`Nessun risultato trovato per "${query}".`}</p>
+          <p>{`Nessun risultato trovato per "${lastQuery}".`}</p>
           <p>
-            {'Effettua una nuova ricerca o '}{' '}
-            <button onClick={onSeeAllClick} type="button">
-              {'vedi tutti i libri.'}
-            </button>{' '}
+            {'Effettua una nuova ricerca o '}
+            <SeeAllLink onClick={onSeeAllClick}>{'vedi tutti i libri'}</SeeAllLink>
+            {'.'}
           </p>
         </>
-      ) : (
-        <p>{'Non è presente alcun libro in questa libreria 😭'}</p>
       )}
     </FlexContainer>
   )

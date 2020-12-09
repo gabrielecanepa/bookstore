@@ -24,16 +24,6 @@ export default createGlobalStyle`
     height: 100%;
   }
 
-  // Hide overflow and simulate an application view
-  body {
-    min-height: 100vh;
-    overflow: hidden;
-
-    > #root {
-      overflow: scroll;
-    }
-  }
-
   h1 {
     font-weight: 900;
   }

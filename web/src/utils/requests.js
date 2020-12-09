@@ -40,4 +40,4 @@ const apiGetRequest = async url =>
     method: 'get',
   })
 
-export const apiGetBooks = query => apiGetRequest(`${BOOKS_URL}/?${stringify(query)}`)
+export const apiGetBooks = params => apiGetRequest(`${BOOKS_URL}/?${stringify(params)}`)

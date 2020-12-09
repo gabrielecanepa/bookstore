@@ -27,6 +27,7 @@ const Title = styled.h2`
 const Message = styled.p`
   font-size: 1.1rem;
   font-weight: 400;
+  line-height: 1.4;
 `
 
 const EmailLink = styled.a`
@@ -38,8 +39,10 @@ const Error = ({ error }) => (
     <StyledErrorIcon />
     <Title>{'Ooops! Qualcosa è andato storto.'}</Title>
     <Message>
-      {`Sembra che tu sia incappato in un errore di ${error.type} (codice ${error.status}). Per favore prova a fare un refresh della pagina, or `}
-      <EmailLink href="#">{'clicca qui'}</EmailLink>
+      {`Sembra che tu sia incappato in un errore di ${error.type} (codice ${error.status}).`}
+      <br />
+      {'Per favore, prova a fare un refresh della pagina, o '}
+      <EmailLink href="mailto:support@bookstore.com">{'clicca qui'}</EmailLink>
       {' per contattare il nostro supporto.'}
     </Message>
   </FlexContainer>

@@ -1,7 +1,7 @@
 import React, { useCallback, useRef, useState } from 'react'
 import styled from 'styled-components'
 import theme from 'theme'
-import { Close, Magnifier } from 'assets/icons'
+import { Magnifier } from 'assets/icons'
 
 const StyledNavbar = styled.nav`
   height: 62px;
@@ -12,15 +12,21 @@ const StyledNavbar = styled.nav`
   padding: 0 1rem;
 `
 
-const Title = styled.a`
+const Title = styled(({ children, ...rest }) => (
+  // eslint-disable-next-line jsx-a11y/anchor-is-valid
+  <a href="./" {...rest}>
+    <h1>{children}</h1>
+  </a>
+))`
   color: white;
-  font-size: 1.5rem;
-  font-weight: 900;
+  text-decoration: none;
 `
 
 const SearchContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  flex-grow: 1;
 `
 
 const Searchbox = styled.input`
@@ -29,11 +35,13 @@ const Searchbox = styled.input`
   margin-right: 1rem;
   width: 18rem;
   padding: 0 0.5rem;
+  flex-grow: 1;
 
   ${({ open }) => !open && 'display: none;'}
 
   @media (min-width: ${({ theme }) => theme.screens.sm}px) {
     display: initial;
+    flex-grow: 0;
   }
 
   ::placeholder {
@@ -47,13 +55,7 @@ const SearchButton = props => (
   </button>
 )
 
-const CloseButton = props => (
-  <button type="button" {...props}>
-    <Close />
-  </button>
-)
-
-const Navbar = ({ fetchBooks, query, setQuery }) => {
+const Navbar = ({ disabled, fetchBooks, lastQuery, query, setQuery }) => {
   const [searchboxOpen, setSearchboxOpen] = useState(false)
   const searchboxRef = useRef(null)
 
@@ -66,37 +68,32 @@ const Navbar = ({ fetchBooks, query, setQuery }) => {
 
   const onSearchboxKeydown = useCallback(
     event => {
+      if (query === lastQuery) return
       if (event.key === 'Enter') {
         fetchBooks()
       }
     },
-    [fetchBooks]
+    [fetchBooks, lastQuery, query]
   )
 
-  const onSearchButtonClick = useCallback(() => {
-    if (window.screen.width < theme.screens.sm && !searchboxOpen) {
-      setSearchboxOpen(true)
+  const onSearchButtonClick = useCallback(async () => {
+    if (window.screen.width < theme.screens.sm) {
+      await setSearchboxOpen(!searchboxOpen)
       searchboxRef.current.focus()
       return
     }
     fetchBooks()
   }, [fetchBooks, searchboxOpen, setSearchboxOpen])
 
-  const onCloseButtonClick = useCallback(() => {
-    setSearchboxOpen(false)
-  }, [])
-
-  // const onSearchboxBlur = useCallback(event => console.log(event), [])
-
   return (
     <StyledNavbar>
       {((!searchboxOpen && window.screen.width < theme.screens.sm) || window.screen.width >= theme.screens.sm) && (
-        <Title href="">{'La Mia Libreria'}</Title>
+        <Title>{'La Mia Libreria'}</Title>
       )}
-      <SearchContainer>
+      <SearchContainer open={searchboxOpen}>
         <Searchbox
           autoFocus
-          // onBlur={onSearchboxBlur}
+          disabled={disabled}
           onChange={onQueryChange}
           onKeyDown={onSearchboxKeydown}
           open={searchboxOpen}
@@ -104,8 +101,7 @@ const Navbar = ({ fetchBooks, query, setQuery }) => {
           ref={searchboxRef}
           value={query}
         />
-        <SearchButton disabled={query === ''} onClick={onSearchButtonClick} />
-        {searchboxOpen && window.screen.width < theme.screens.sm && <CloseButton onClick={onCloseButtonClick} />}
+        <SearchButton disabled={disabled} onClick={onSearchButtonClick} />
       </SearchContainer>
     </StyledNavbar>
   )

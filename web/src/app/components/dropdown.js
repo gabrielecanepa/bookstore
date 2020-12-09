@@ -15,9 +15,13 @@ const StyledSelect = styled.select`
   font-weight: 500;
   margin-left: 4px;
   cursor: pointer;
+
+  :disabled {
+    cursor: default;
+  }
 `
 
-const Dropdown = ({ fetchBooks, order, setOrder }) => {
+const Dropdown = ({ disabled, fetchBooks, order, setOrder }) => {
   const dropdownRef = useRef(null) // to check if the component has mounted
 
   const onOrderChange = useCallback(
@@ -38,7 +42,7 @@ const Dropdown = ({ fetchBooks, order, setOrder }) => {
   return (
     <Container>
       <label htmlFor="order-by">{'Ordina per: '}</label>
-      <StyledSelect id="order-by" name="order-by" onChange={onOrderChange} ref={dropdownRef}>
+      <StyledSelect disabled={disabled} id="order-by" name="order-by" onChange={onOrderChange} ref={dropdownRef}>
         <option value="">{'Default'}</option>
         <option value="title">{'Titolo'}</option>
         <option value="author">{'Autore'}</option>

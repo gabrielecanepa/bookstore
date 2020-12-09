@@ -1,1 +1,38 @@
 # Book Store
+
+A simple application to display and filter a collection a books.
+
+The books are stored in a PostgreSQL database and managed with a Node.js API. The web interface was built with React.
+
+A live version of the app is available at []().
+
+## Usage
+
+Clone the app to your computer:
+
+```sh
+git clone git@github.com:gabrielecanepa/bookstore
+cd bookstore
+```
+
+### API
+
+1. Switch to the `/api` folder
+2. Install the dependencies with `yarn install` or `npm install`
+3. Install [Sequelize]() globally with `yarn global add sequelize` or `npm install -g sequelize`, or just run it with [npx]()
+4. Build a local database and seed some books:
+   ```sh
+   sequelize db:create
+   sequelize db:migrate
+   sequelize db:seed:all
+   ``` 
+5. Run the app locally on port 5000 with `yarn dev` or `npm run dev`
+
+### Web
+
+1. Switch to the `/web` folder
+2. Install the dependencies with `yarn install` or `npm install`
+3. Run the app with `yarn start` or `npm start`
+
+
+

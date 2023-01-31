@@ -1,16 +1,15 @@
 {
   "name": "bookstore-api",
-  "description": "Simple Node.js RESTful API serving books from a PostgreSQL database",
+  "description": "Simple Node.js RESTful API serving books from a PostgreSQL database.",
   "main": "index.js",
   "repository": "https://github.com/gabrielecanepa/bookstore",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.21.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "faker": "^5.1.0",
     "morgan": "^1.10.0",
-    "pg": "^8.5.1",
+    "pg": "^8.9.0",
     "sequelize": "^6.3.5"
   },
   "devDependencies": {
@@ -22,8 +21,9 @@
   },
   "scripts": {
     "start": "node ./index.js",
-    "dev": "./node_modules/.bin/nodemon ./index.js",
-    "lint": "./node_modules/.bin/eslint index.js src",
+    "dev": "nodemon",
+    "lint": "eslint index.js src",
+    "lint:fix": "eslint index.js src --fix",
     "db:reset": "sequelize db:drop && sequelize db:create && sequelize db:migrate && sequelize db:seed:all"
   }
 }

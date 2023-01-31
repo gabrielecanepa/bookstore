@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Loader as LoaderIcon } from 'assets/icons'
+
+import { Loader as LoaderIcon } from '../../assets/icons'
 
 const FlexContainer = styled.div`
   height: 100%;

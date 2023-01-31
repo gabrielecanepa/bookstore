@@ -1,6 +1,3 @@
-import GlobalStyle from './global'
-export { GlobalStyle }
-
 const screens = {
   sm: 576,
   md: 768,
@@ -36,3 +33,4 @@ export default {
   colors,
   ...theme,
 }
+export { default as GlobalStyle } from './global'

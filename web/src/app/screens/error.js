@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Error as ErrorIcon } from 'assets/icons'
+
+import { Error as ErrorIcon } from '../../assets/icons'
 
 const FlexContainer = styled.div`
   width: 100%;

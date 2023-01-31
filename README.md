@@ -25,14 +25,14 @@ cd bookstore
    sequelize db:create
    sequelize db:migrate
    sequelize db:seed:all
-   ``` 
+   ```
 5. Run the app locally on port 5000 with `yarn dev` or `npm run dev`
 
 ### Web
 
 1. Switch to the `/web` folder
 2. Install the dependencies with `yarn install` or `npm install`
-3. Run the app locally with `yarn start` or `npm run start`
+3. Run the app locally with `yarn dev` or `npm run dev`
 
 
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { truncateString } from 'utils'
+
+import { truncateString } from '../../utils'
 
 const StyledCard = styled.div`
   max-width: 100%;

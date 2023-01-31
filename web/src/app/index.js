@@ -1,9 +1,10 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
-import theme, { GlobalStyle } from 'theme'
+import { ThemeProvider } from 'styled-components'
+
+import theme, { GlobalStyle } from '../theme'
 import { Dropdown, Navbar } from './components'
 import { EmptyState, Error, Library, Loader } from './screens'
-import { ThemeProvider } from 'styled-components'
-import { apiGetBooks, apiRequest } from 'utils'
+import { apiGetBooks, apiRequest } from '../utils'
 
 const AppBase = ({ children }) => (
   <ThemeProvider theme={theme}>

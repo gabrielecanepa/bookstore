@@ -1,7 +1,8 @@
 import React, { useCallback, useRef, useState } from 'react'
 import styled from 'styled-components'
-import theme from 'theme'
-import { Magnifier } from 'assets/icons'
+
+import theme from '../../theme'
+import { Magnifier } from '../../assets/icons'
 
 const StyledNavbar = styled.nav`
   height: 62px;

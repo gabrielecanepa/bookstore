@@ -1,6 +1,7 @@
-import Card from 'app/components/card'
 import React from 'react'
 import styled from 'styled-components'
+
+import Card from '../components/card'
 
 const Container = styled.div`
   display: grid;
